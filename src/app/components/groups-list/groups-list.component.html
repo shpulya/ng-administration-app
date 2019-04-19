@@ -1,3 +1,31 @@
-<p>
-  groups-list works!
-</p>
+<div class="header">
+  <h1>Group List</h1>
+  <button mat-raised-button class="new_group" (click)="openDialogWindow('newGroup')">Add</button>
+</div>
+<div class="list">
+  <table mat-table [dataSource]="groups" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="data_creation">
+      <th mat-header-cell *matHeaderCellDef> Data Creation </th>
+      <td mat-cell *matCellDef="let element"> {{element.data_creation}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

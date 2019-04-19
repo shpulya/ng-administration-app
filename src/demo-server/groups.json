@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "name": "PE-23",
+      "description": "Programing engineering",
+      "data_creation": "12.02.2019"
+    },
+    {
+      "id": 2,
+      "name": "KT-22",
+      "description": "Computer science",
+      "data_creation": "12.02.2019"
+    }
+  ]
+}
