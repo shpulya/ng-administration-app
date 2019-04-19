@@ -20,7 +20,7 @@ export class GroupsListComponent implements OnInit {
   }
 
   public openDialogWindow(): void {
-
+    this.groupService.addGroup().subscribe(() => {});
   }
 
 }

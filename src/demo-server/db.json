@@ -11,6 +11,18 @@
       "name": "KT-22",
       "description": "Computer science",
       "data_creation": "12.02.2019"
+    },
+    {
+      "id": 5,
+      "name": "dff",
+      "description": "gjhgjh",
+      "data_creation": ""
+    },
+    {
+      "name": "dff",
+      "description": "gjhgjh",
+      "data_creation": "",
+      "id": 6
     }
   ],
   "users": [

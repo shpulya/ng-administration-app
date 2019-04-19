@@ -14,4 +14,8 @@ export class GroupService {
   public getGroups(): Observable<Array<IGroup>> {
     return this.http.get<Array<IGroup>>('http://localhost:3000/groups');
   }
+
+  public addGroup():   Observable<Array<IGroup>> {
+    return this.http.post<Array<IGroup>>('http://localhost:3000/groups', { 'name': 'dff', 'description': 'gjhgjh', 'data_creation': '' });
+  }
 }
