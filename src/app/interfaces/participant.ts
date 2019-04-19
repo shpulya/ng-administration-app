@@ -4,4 +4,5 @@ export interface IParticipant {
   surname: string;
   email: string;
   phone: string;
+  group: number;
 }
