@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Create New Participant</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="user!.name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Surname" [(ngModel)]="user!.surname">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Email" [(ngModel)]="user!.email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Phone" [(ngModel)]="user!.phone">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="user" cdkFocusInitial>Create</button>
+</div>

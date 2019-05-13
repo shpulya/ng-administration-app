@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {IParticipant} from '../interfaces/participant';
-import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IParticipant } from '../interfaces/participant';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ParticipantService {
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
 
-  public getUsers(): Observable<Array<IParticipant>> {
-    return this.http.get<Array<IParticipant>>('http://localhost:3000/users');
-  }
+    public getUsers(): Observable<Array<IParticipant>> {
+        return this.http.get<Array<IParticipant>>('http://localhost:3000/users');
+    }
 
-  public addUser():   Observable<Array<IParticipant>> {
-    return this.http.post<Array<IParticipant>>('http://localhost:3000/users', { 'name': 'dff', 'surname': 'gjhgjh', 'email': '' });
-  }
+    public addUser(user: IParticipant): Observable<IParticipant> {
+        return this.http.post<IParticipant>('http://localhost:3000/users', user);
+    }
+
+    public updateUser(id: number, user: IParticipant): Observable<IParticipant> {
+        return this.http.put<IParticipant>('http://localhost:3000/users/' + id, user);
+    }
+
+    public deleteUser(id: number): Observable<IParticipant> {
+        return this.http.delete<IParticipant>('http://localhost:3000/users/' + id);
+    }
 }

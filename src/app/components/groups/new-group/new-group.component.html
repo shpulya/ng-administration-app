@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Create New Participant</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="group!.name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Surname" [(ngModel)]="group!.description">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="group" cdkFocusInitial>Create</button>
+</div>
