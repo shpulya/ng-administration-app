@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IParticipant } from '../interfaces/participant';
 import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
+import { IParticipant } from '../app.models';
+
 
 @Injectable({
     providedIn: 'root'
@@ -17,6 +19,20 @@ export class ParticipantService {
 
     public addUser(user: IParticipant): Observable<IParticipant> {
         return this.http.post<IParticipant>('http://localhost:3000/users', user);
+    }
+
+    public getUserById(id: number): IParticipant {
+        let user: IParticipant = null;
+
+        if (!this.getUsers()) {
+            return null;
+        } else {
+            this.getUsers().subscribe((users: Array<IParticipant>) => {
+                user = users.find((u: IParticipant) => u.id === id);
+            });
+        }
+
+        return user;
     }
 
     public updateUser(id: number, user: IParticipant): Observable<IParticipant> {

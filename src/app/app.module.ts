@@ -14,7 +14,8 @@ import { MaterialModule } from './material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material';
 import { NewGroupComponent } from './components/groups/new-group/new-group.component';
-
+import { UsersByGroupComponent } from './components/groups/users-by-group/users-by-group.component';
+import { NewGroupUserComponent } from './components/groups/users-by-group/new-group-user/new-group-user.component';
 
 @NgModule({
     declarations: [
@@ -24,12 +25,15 @@ import { NewGroupComponent } from './components/groups/new-group/new-group.compo
         GroupsListComponent,
         GroupInfoComponent,
         NewParticipantComponent,
-        NewGroupComponent
+        NewGroupComponent,
+        UsersByGroupComponent,
+        NewGroupUserComponent
     ],
     entryComponents: [
         ParticipantsListComponent,
         NewParticipantComponent,
-        NewGroupComponent
+        NewGroupComponent,
+        NewGroupUserComponent
     ],
     imports: [
         BrowserModule,

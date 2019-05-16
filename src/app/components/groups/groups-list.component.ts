@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupService } from '../../services/group.service';
-import { IGroup } from '../../interfaces/group';
 import { MatDialog } from '@angular/material';
-import { NewGroupComponent } from './new-group/new-group.component';
-import {IParticipant} from '../../interfaces/participant';
 
+import { GroupService } from '../../services/group.service';
+import { IGroup } from '../../app.models';
+import { NewGroupComponent } from './new-group/new-group.component';
 
 @Component({
     selector: 'app-groups-list',
@@ -15,7 +14,7 @@ export class GroupsListComponent implements OnInit {
 
     public groups: Array<IGroup> = [];
 
-    public displayedColumns: Array<string> = ['id', 'name', 'description', 'data_creation', 'delete'];
+    public displayedColumns: Array<string> = ['id', 'name', 'description', 'data_creation', 'edit', 'delete'];
 
     public group: IGroup;
 
@@ -36,11 +35,7 @@ export class GroupsListComponent implements OnInit {
             );
 
         dialogRef.afterClosed().subscribe((group: IGroup) => {
-            this.group = group;
-            console.log('new group', this.group);
-            this.groupService.addGroup(this.group).subscribe(() => {
-                this.refreshGroups();
-            });
+            this.refreshGroups();
         });
     }
 
@@ -55,5 +50,4 @@ export class GroupsListComponent implements OnInit {
             this.groups = groups;
         });
     }
-
 }

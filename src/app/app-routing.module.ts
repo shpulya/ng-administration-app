@@ -4,8 +4,14 @@ import { ParticipantsListComponent } from './components/participants/participant
 import { ParticipantInfoComponent } from './components/participants/participant-info/participant-info.component';
 import { GroupsListComponent } from './components/groups/groups-list.component';
 import { GroupInfoComponent } from './components/groups/group-info/group-info.component';
+import { UsersByGroupComponent } from './components/groups/users-by-group/users-by-group.component';
 
 const routes: Routes = [
+    {
+        path: '',
+        redirectTo: '/users',
+        pathMatch: 'full'
+    },
     {
         path: 'users',
         component: ParticipantsListComponent
@@ -19,7 +25,11 @@ const routes: Routes = [
         component: GroupsListComponent
     },
     {
-        path: 'groups/:groupsId',
+        path: 'groups/:groupId',
+        component: UsersByGroupComponent
+    },
+    {
+        path: 'groups/edit/:groupId',
         component: GroupInfoComponent
     }
 ];

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public title = 'ng-administration-app';
+    public title: string = 'ng-administration-app';
 }

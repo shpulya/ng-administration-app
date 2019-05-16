@@ -13,19 +13,15 @@
       "data_creation": "12.02.2019"
     },
     {
-      "id": 5,
-      "name": "dff",
-      "description": "gjhgjh",
-      "data_creation": ""
-    },
-    {
-      "id": 6
-    },
-    {
+      "name": "jj",
+      "description": "jj",
+      "data_creation": "2019-05-14T08:22:38.414Z",
       "id": 7
     },
     {
-      "id": 8
+      "name": "FirstG",
+      "description": "Clever",
+      "id": 12
     }
   ],
   "users": [
@@ -44,11 +40,11 @@
       "phone": "(099)223-22-11"
     },
     {
-      "id": 3,
       "name": "Ivan",
       "surname": "Fedorov",
       "email": "if@gmail.com",
-      "phone": "(066)643-44-11"
+      "phone": "(066)643-44-13",
+      "id": 3
     }
   ]
 }

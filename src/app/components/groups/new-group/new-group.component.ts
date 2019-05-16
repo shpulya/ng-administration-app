@@ -1,6 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { IGroup } from '../../../interfaces/group';
+import { FormControl, FormGroup } from '@angular/forms';
+
+import { IGroup } from '../../../app.models';
+import { GroupService } from '../../../services/group.service';
 
 @Component({
     selector: 'app-new-group',
@@ -9,11 +12,31 @@ import { IGroup } from '../../../interfaces/group';
 })
 export class NewGroupComponent {
 
-    constructor(
-        private matDialogRef: MatDialogRef<NewGroupComponent>,
-        @Inject(MAT_DIALOG_DATA) public group: IGroup) { }
+    public groupForm: FormGroup;
 
-    public onNoClick(): void {
+    constructor(
+        @Inject(MAT_DIALOG_DATA)
+        public group: IGroup,
+        private matDialogRef: MatDialogRef<NewGroupComponent>,
+        private groupService: GroupService) {
+
+        this.groupForm = new FormGroup({
+            name: new FormControl(),
+            description: new FormControl()
+        });
+    }
+
+    public onCancel(): void {
         this.matDialogRef.close();
+    }
+
+    public onCreate(): void {
+        const today = new Date();
+
+        this.group = this.groupForm.value;
+        this.group.data_creation = today;
+        this.groupService.addGroup(this.group).subscribe(() => {
+            this.groupService.getGroups();
+        });
     }
 }

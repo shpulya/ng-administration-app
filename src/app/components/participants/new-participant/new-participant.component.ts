@@ -1,7 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ParticipantsListComponent } from '../participants-list.component';
-import { IParticipant } from '../../../interfaces/participant';
+import { FormControl, FormGroup } from '@angular/forms';
+
+import { IParticipant } from '../../../app.models';
+import { ParticipantService } from '../../../services/participant.service';
+
 
 @Component({
     selector: 'app-new-participants',
@@ -10,13 +13,32 @@ import { IParticipant } from '../../../interfaces/participant';
 })
 export class NewParticipantComponent {
 
+    public userForm: FormGroup;
+
     constructor(
-        public dialogRef: MatDialogRef<ParticipantsListComponent>,
-        @Inject(MAT_DIALOG_DATA) public user: IParticipant) {
+        @Inject(MAT_DIALOG_DATA)
+        public user: IParticipant,
+        private matDialogRef: MatDialogRef<NewParticipantComponent>,
+        private userService: ParticipantService) {
+
+        this.userForm = new FormGroup({
+            name: new FormControl(),
+            surname: new FormControl(),
+            email: new FormControl(),
+            phone: new FormControl(),
+            group: new FormControl()
+        });
     }
 
-    public onNoClick(): void {
-        this.dialogRef.close();
+    public onCancel(): void {
+        this.matDialogRef.close();
+    }
+
+    public onCreate(): void {
+        this.user = this.userForm.value;
+        this.userService.addUser(this.user).subscribe(() => {
+            this.userService.getUsers();
+        });
     }
 
 }

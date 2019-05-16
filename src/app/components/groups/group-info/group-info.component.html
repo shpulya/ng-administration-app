@@ -1,3 +1,12 @@
-<p>
-  group-info works!
-</p>
+<h1 >Group {{name}}</h1>
+<form [formGroup]="groupForm">
+    <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Description" formControlName="description">
+    </mat-form-field>
+
+    <a [routerLink]="'/groups/' + groupId" color="">Back</a>
+    <button mat-raised-button cdkFocusInitial (click) = "onUpdate()">Update</button>
+</form>

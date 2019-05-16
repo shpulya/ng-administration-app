@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ParticipantService } from '../../services/participant.service';
-import { IParticipant } from '../../interfaces/participant';
 import { MatDialog } from '@angular/material';
+
+import { ParticipantService } from '../../services/participant.service';
+import { IParticipant } from '../../app.models';
 import { NewParticipantComponent } from './new-participant/new-participant.component';
 
 @Component({
@@ -13,7 +14,7 @@ export class ParticipantsListComponent implements OnInit {
 
     public users: Array<IParticipant> = [];
 
-    public displayedColumns: Array<string> = ['id', 'name', 'surname', 'email', 'phone', 'groupId', 'delete'];
+    public displayedColumns: Array<string> = ['id', 'name', 'surname', 'email', 'phone', 'edit', 'delete'];
 
     public user: IParticipant;
 
@@ -30,11 +31,7 @@ export class ParticipantsListComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((user: IParticipant) => {
-            this.user = user;
-            console.log('new user', this.user);
-            this.participantsServer.addUser(this.user).subscribe(() => {
-                this.refreshUsers();
-            });
+            this.refreshUsers();
         });
     }
 

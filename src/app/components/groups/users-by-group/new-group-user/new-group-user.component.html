@@ -1,0 +1,13 @@
+<h3>Select User from list</h3>
+<mat-form-field>
+    <mat-label>Users</mat-label>
+    <mat-select [(value)]="selectedUserId">
+        <mat-option *ngFor="let user of users" [value]="user.id">
+            {{user.name}} {{user.surname}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="onClose()">Cancel</button>
+    <button mat-raised-button (click)="onAdd(selectedUserId)">Add</button>
+</div>
