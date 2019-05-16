@@ -1,6 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {IGroup, IParticipant} from '../../../../app.models';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+
+import { IParticipant } from '../../../../app.models';
 import { ParticipantService } from '../../../../services/participant.service';
 import { GroupService } from '../../../../services/group.service';
 
@@ -14,13 +15,10 @@ export class NewGroupUserComponent implements OnInit {
     public users: Array<IParticipant>;
 
     constructor(
-        @Inject(MAT_DIALOG_DATA)
-        public user: IParticipant,
         private matDialogRef: MatDialogRef<NewGroupUserComponent>,
         private usersService: ParticipantService,
         private groupService: GroupService
     ) {
-
     }
 
     public ngOnInit(): void {
@@ -33,7 +31,6 @@ export class NewGroupUserComponent implements OnInit {
         this.usersService.getUsers().subscribe((users: Array<IParticipant>) => {
             const user = users.find((u: IParticipant) => u.id === userId);
             this.groupService.addUserToGroup(user);
-            console.log(user);
         });
 
         this.matDialogRef.close();

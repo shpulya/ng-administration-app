@@ -29,22 +29,24 @@ export class GroupService {
     }
 
     public updateGroup(id: number, group: IGroup): Observable<IGroup> {
-        return this.http.put<IGroup>(this.host + 'groups/' + id, group);
+        return this.http.put<IGroup>(`${this.host}groups/${id}`, group);
     }
 
     public deleteGroup(id: number): Observable<IGroup> {
-        return this.http.delete<IGroup>(this.host + 'groups/' + id);
+        return this.http.delete<IGroup>(`${this.host}groups/${id}`);
     }
 
     public addUserToGroup(user: IParticipant): void {
-        const currentUsers: Array<IParticipant> = this.users$.getValue();
-        currentUsers.push(user);
-        this.users$.next(currentUsers);
+        if (this.users$.getValue().map(u => u.id).indexOf(user.id) === -1) {
+            const currentUsers: Array<IParticipant> = this.users$.getValue();
+            currentUsers.push(user);
+            this.users$.next(currentUsers);
+        }
     }
 
     public deleteUserFromGroup(user: IParticipant): void {
         const currentUsers: Array<IParticipant> = this.users$.getValue();
-        currentUsers.splice(currentUsers.indexOf(user), 1);
+        currentUsers.splice(currentUsers.map(u => u.id).indexOf(user.id), 1);
         this.users$.next(currentUsers);
     }
 }

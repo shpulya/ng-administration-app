@@ -49,7 +49,7 @@ export class UsersByGroupComponent implements OnInit {
             }
         );
 
-        dialogRef.afterClosed().subscribe(() => {
+        dialogRef.afterClosed().subscribe((user: IParticipant) => {
             this.refreshGroup();
         });
     }
@@ -60,8 +60,7 @@ export class UsersByGroupComponent implements OnInit {
 
     private refreshGroup(): void {
         this.groupService.users$.subscribe((users: Array<IParticipant>) => {
-            this.users = users;
-
+            this.users = [...users];
             console.log(users);
         });
     }

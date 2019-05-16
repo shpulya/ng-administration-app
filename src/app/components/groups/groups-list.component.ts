@@ -29,8 +29,7 @@ export class GroupsListComponent implements OnInit {
         const dialogRef = this.dialog.open(
             NewGroupComponent,
             {
-                width: '650px',
-                data: {group: this.groups}
+                width: '650px'
             }
             );
 

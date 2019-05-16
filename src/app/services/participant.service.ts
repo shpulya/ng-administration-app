@@ -21,20 +21,6 @@ export class ParticipantService {
         return this.http.post<IParticipant>('http://localhost:3000/users', user);
     }
 
-    public getUserById(id: number): IParticipant {
-        let user: IParticipant = null;
-
-        if (!this.getUsers()) {
-            return null;
-        } else {
-            this.getUsers().subscribe((users: Array<IParticipant>) => {
-                user = users.find((u: IParticipant) => u.id === id);
-            });
-        }
-
-        return user;
-    }
-
     public updateUser(id: number, user: IParticipant): Observable<IParticipant> {
         return this.http.put<IParticipant>('http://localhost:3000/users/' + id, user);
     }
