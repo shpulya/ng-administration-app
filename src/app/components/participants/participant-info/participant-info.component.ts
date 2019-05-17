@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { IParticipant } from '../../../app.models';
@@ -23,10 +23,20 @@ export class ParticipantInfoComponent implements OnInit {
         private userService: ParticipantService
     ) {
         this.userForm = new FormGroup({
-            name: new FormControl(),
-            surname: new FormControl(),
-            email: new FormControl(),
-            phone: new FormControl()
+            name: new FormControl(
+                Validators.required
+            ),
+            surname: new FormControl(
+                Validators.required
+            ),
+            email: new FormControl(
+                Validators.required,
+                Validators.email
+            ),
+            phone: new FormControl(
+                Validators.required,
+                Validators.pattern(/^\+?([0-9]{2})[- (]?([0-9]{3})[- )]?([0-9]{3})[- ]?([0-9]{2})[- ]?([0-9]{2})$/)
+            )
         });
     }
 

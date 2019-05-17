@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IGroup } from '../../../app.models';
 import { GroupService } from '../../../services/group.service';
@@ -21,7 +21,7 @@ export class NewGroupComponent {
         private groupService: GroupService) {
 
         this.groupForm = new FormGroup({
-            name: new FormControl(),
+            name: new FormControl(Validators.required, Validators.maxLength(100)),
             description: new FormControl()
         });
     }

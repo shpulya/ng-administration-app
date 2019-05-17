@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IParticipant } from '../../../app.models';
 import { ParticipantService } from '../../../services/participant.service';
@@ -22,11 +22,20 @@ export class NewParticipantComponent {
         private userService: ParticipantService) {
 
         this.userForm = new FormGroup({
-            name: new FormControl(),
-            surname: new FormControl(),
-            email: new FormControl(),
-            phone: new FormControl(),
-            group: new FormControl()
+            name: new FormControl(
+                Validators.required
+            ),
+            surname: new FormControl(
+                Validators.required
+            ),
+            email: new FormControl(
+                Validators.required,
+                Validators.email
+            ),
+            phone: new FormControl(
+                Validators.required,
+                Validators.pattern(/^\+?([0-9]{2})[- (]?([0-9]{3})[- )]?([0-9]{3})[- ]?([0-9]{2})[- ]?([0-9]{2})$/)
+            )
         });
     }
 
