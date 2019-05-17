@@ -1,7 +1,7 @@
 <div class="header">
     <h1>Group {{name | uppercase}}</h1>
     <button mat-raised-button class="modify" [routerLink]="'../edit/' + groupId">Edit</button>
-    <button mat-raised-button class="modify" (click)="openDialogWindow()">Add New Participant</button>
+    <button mat-raised-button class="modify" (click)="openDialogWinToAddUser()">Add New Participant</button>
 </div>
 <div class="list">
     <table mat-table [dataSource]="users" class="mat-elevation-z8">

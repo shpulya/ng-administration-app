@@ -3,15 +3,27 @@
     <mat-form-field>
         <input matInput placeholder="Name" formControlName="name">
     </mat-form-field>
+    <mat-error *ngIf="userForm.controls.name?.invalid">
+        Enter user name
+    </mat-error>
     <mat-form-field>
         <input matInput placeholder="Surname" formControlName="surname">
     </mat-form-field>
+    <mat-error *ngIf="userForm.controls.surname?.invalid">
+        Enter user surname
+    </mat-error>
     <mat-form-field>
         <input matInput placeholder="Email" formControlName="email">
     </mat-form-field>
+    <mat-error *ngIf="userForm.controls.email?.invalid">
+        Enter user email (e.g. name@gmail.com)
+    </mat-error>
     <mat-form-field>
         <input matInput placeholder="Phone" formControlName="phone">
     </mat-form-field>
+    <mat-error *ngIf="userForm.controls.phone?.invalid">
+        Enter user phone (e.g. +38(096)666-66-66)
+    </mat-error>
 </form>
 <div mat-dialog-actions>
     <button mat-button (click)="onCancel()">No Thanks</button>

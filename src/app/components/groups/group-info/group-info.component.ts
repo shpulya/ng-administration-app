@@ -25,7 +25,7 @@ export class GroupInfoComponent implements OnInit {
         private groupService: GroupService
     ) {
         this.groupForm = new FormGroup({
-            name: new FormControl(Validators.required, Validators.maxLength(100)),
+            name: new FormControl('', Validators.required),
             description: new FormControl()
         });
     }

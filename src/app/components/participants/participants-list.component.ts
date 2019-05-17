@@ -24,13 +24,12 @@ export class ParticipantsListComponent implements OnInit {
         this.refreshUsers();
     }
 
-    public openDialogWindow(): void {
+    public openNewUserDialogWin(): void {
         const dialogRef = this.dialog.open(NewParticipantComponent, {
-            width: '650px',
-            data: {user: this.user}
+            width: '650px'
         });
 
-        dialogRef.afterClosed().subscribe((user: IParticipant) => {
+        dialogRef.afterClosed().subscribe(() => {
             this.refreshUsers();
         });
     }

@@ -40,7 +40,7 @@ export class UsersByGroupComponent implements OnInit {
         this.refreshGroup();
     }
 
-    public openDialogWindow(): void {
+    public openDialogWinToAddUser(): void {
         const dialogRef = this.dialog.open(
             NewGroupUserComponent,
             {

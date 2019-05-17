@@ -23,20 +23,16 @@ export class ParticipantInfoComponent implements OnInit {
         private userService: ParticipantService
     ) {
         this.userForm = new FormGroup({
-            name: new FormControl(
-                Validators.required
-            ),
-            surname: new FormControl(
-                Validators.required
-            ),
-            email: new FormControl(
+            name: new FormControl('', Validators.required),
+            surname: new FormControl('', Validators.required),
+            email: new FormControl('', [
                 Validators.required,
                 Validators.email
-            ),
-            phone: new FormControl(
+            ]),
+            phone: new FormControl('', [
                 Validators.required,
                 Validators.pattern(/^\+?([0-9]{2})[- (]?([0-9]{3})[- )]?([0-9]{3})[- ]?([0-9]{2})[- ]?([0-9]{2})$/)
-            )
+            ])
         });
     }
 

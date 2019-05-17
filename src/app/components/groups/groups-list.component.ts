@@ -25,7 +25,7 @@ export class GroupsListComponent implements OnInit {
         this.refreshGroups();
     }
 
-    public openDialogWindow(): void {
+    public openNewGroupDialogWin(): void {
         const dialogRef = this.dialog.open(
             NewGroupComponent,
             {

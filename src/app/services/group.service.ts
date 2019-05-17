@@ -15,7 +15,6 @@ export class GroupService {
     
     private readonly host: string;
 
-
     constructor(private http: HttpClient) {
         this.host = environment.host;
     }
