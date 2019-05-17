@@ -21,11 +21,11 @@ export class GroupService {
     }
 
     public getGroups(): Observable<Array<IGroup>> {
-        return this.http.get<Array<IGroup>>(this.host + 'groups');
+        return this.http.get<Array<IGroup>>(`${this.host}groups/`);
     }
 
     public addGroup(group: IGroup): Observable<IGroup> {
-        return this.http.post<IGroup>(this.host + 'groups', group);
+        return this.http.post<IGroup>(`${this.host}groups/`, group);
     }
 
     public updateGroup(id: number, group: IGroup): Observable<IGroup> {
