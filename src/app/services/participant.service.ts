@@ -26,10 +26,10 @@ export class ParticipantService {
     }
 
     public updateUser(id: number, user: IParticipant): Observable<IParticipant> {
-        return this.http.put<IParticipant>(`${this.host}users${id}`, user);
+        return this.http.put<IParticipant>(`${this.host}users/${id}`, user);
     }
 
     public deleteUser(id: number): Observable<IParticipant> {
-        return this.http.delete<IParticipant>(`${this.host}users${id}`);
+        return this.http.delete<IParticipant>(`${this.host}users/${id}`);
     }
 }

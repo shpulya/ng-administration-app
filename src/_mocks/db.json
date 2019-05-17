@@ -1,10 +1,9 @@
 {
   "groups": [
     {
-      "id": 1,
-      "name": "PE-23",
+      "name": "PE-27",
       "description": "Programing engineering",
-      "data_creation": "12.02.2019"
+      "id": 1
     },
     {
       "id": 2,
@@ -32,11 +31,11 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Irina",
+      "name": "Iryna",
       "surname": "Brichak",
       "email": "ib@gmail.com",
-      "phone": "(096)683-22-11"
+      "phone": "(096)683-22-11",
+      "id": 1
     },
     {
       "id": 2,

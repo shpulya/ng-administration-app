@@ -46,6 +46,8 @@ export class GroupInfoComponent implements OnInit {
     }
 
     public onUpdate(): void {
-        this.groupService.updateGroup(this.groupId, this.groupForm.value).subscribe();
+        this.groupService.updateGroup(this.groupId, this.groupForm.value).subscribe((group: IGroup) => {
+            this.name = group.name.toUpperCase();
+        });
     }
 }

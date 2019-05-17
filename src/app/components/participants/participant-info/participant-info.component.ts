@@ -56,6 +56,8 @@ export class ParticipantInfoComponent implements OnInit {
     }
 
     public onUpdate(): void {
-        this.userService.updateUser(this.userId, this.userForm.value).subscribe();
+        this.userService.updateUser(this.userId, this.userForm.value).subscribe((user: IParticipant) => {
+            this.user = user;
+        });
     }
 }
