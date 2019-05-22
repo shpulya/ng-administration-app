@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
 ## JSON-server
-To run project you need to install JSON-server >npm i json-server
+To run project you need to install JSON-server >npm i json-server  
 Run JSON with mocks data in _mocks folder using >json-server db.json
 
 ## Development server
